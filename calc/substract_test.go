@@ -6,7 +6,7 @@ import (
 
 func TestSubstract(t *testing.T) {
 	result := Substract(8, 4)
-	if result != 7 {
+	if result != 4 {
 		t.Error("Substract() return Error")
 	}
 }
