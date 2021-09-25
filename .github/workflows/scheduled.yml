@@ -1,0 +1,19 @@
+name: Scheduled Test
+on:
+  schedule:
+    - cron: "59 23 * * *"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.17.0" # The Go version to download (if necessary) and use.
+      - name: Check Go version
+        run: |
+          go version
+      - name: Run Test
+        run: |
+          make test
