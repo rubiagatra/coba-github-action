@@ -1,0 +1,23 @@
+name: Run Main
+
+on:
+  push:
+    branches: [main]
+jobs:
+  run:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.17.0" # The Go version to download (if necessary) and use.
+      - name: Check Go version
+        run: |
+          go version
+      - name: Go Build
+        run: |
+          make build
+      - name: Run the app
+        run: |
+          ./coba-github-action
