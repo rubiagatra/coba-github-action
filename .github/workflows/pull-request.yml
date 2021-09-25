@@ -1,5 +1,7 @@
-name: GitHub Actions Demo
-on: [push]
+name: Build And Test
+on:
+  pull_request:
+    types: [opened]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,23 +28,6 @@ jobs:
       - name: Check Go version
         run: |
           go version
-      - name: Go Build
+      - name: Go Test
         run: |
           make test
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: "1.17.0" # The Go version to download (if necessary) and use.
-      - name: Check Go version
-        run: |
-          go version
-      - name: Go Build
-        run: |
-          make build
-      - name: Run the app
-        run: |
-          ./coba-github-action
