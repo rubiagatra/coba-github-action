@@ -14,5 +14,5 @@ func main() {
 		return c.SendString(fmt.Sprintf("Hello, World 👋! Add(3 + 3 = %d)", calc.Add(3, 3)))
 	})
 
-	app.Listen(":3000")
+	app.Listen("0.0.0.0:3000")
 }
