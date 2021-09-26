@@ -17,5 +17,5 @@ func main() {
 
 	port := os.Getenv("PORT")
 	fmt.Println(port)
-	app.Listen(fmt.Sprintf("0.0.0.0:%s", port))
+	app.Listen(":" + port)
 }
