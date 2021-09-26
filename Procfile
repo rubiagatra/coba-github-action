@@ -1,1 +1,1 @@
-web:bin/coba-github-action
+web: bin/coba-github-action
