@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/rubiagatra/coba-github-action/calc"
@@ -14,5 +15,7 @@ func main() {
 		return c.SendString(fmt.Sprintf("Hello, World 👋! Add(3 + 3 = %d)", calc.Add(3, 3)))
 	})
 
-	app.Listen("0.0.0.0:3000")
+	port := os.Getenv("PORT")
+	fmt.Println(port)
+	app.Listen(fmt.Sprintf("0.0.0.0:%s", port))
 }
